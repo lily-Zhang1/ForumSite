@@ -15,7 +15,7 @@
 
 在最初的设计中我在forum和topic，topic和post，post和person之间都增加了join table，同时将topic设计为可以同时属于多个forum下。最初设计考虑在实际情况下的数据库检索速度，增加topic_post_relation和person_post_relation可以更快的检索出一个topic下有多少个post，或者一个person发表了多少个的Post。但后来发现计算数量的情况不多，且在实际使用中只计算出一个数量也是没有意义的，反而增加了join表的数量。另外，一个topic在使用中只可能属于一个forum，故最后综合考虑删除了三个join table。最终ER图如下：
 
-![ER图](ER图.png)
+<img src="./ER图.png" width = "300" height = "200" alt="ER图" align=center />
 
 ## 网页设计
 使用freemarker创建的模板文件存储在服务器端，当有用户访问这个页面时，freemarker会在页面返回前将其中一些内容进行动态替换成服务器从数据库获取的数据。
